@@ -594,7 +594,7 @@ static int do_connect(int fd, const struct addrinfo *addrinfo,
 	return 0;
 }
 
-static int create_socket(const struct addrinfo *addrinfo, unsigned int timeout)
+int create_socket(const struct addrinfo *addrinfo, unsigned int timeout)
 {
 	int ret, fd, yes = 1;
 
@@ -1356,8 +1356,8 @@ struct iio_context * network_create_context(const char *host)
 			errno = -ret;
 			return NULL;
 		}
-
 		iio_snprintf(port_str, sizeof(port_str), "%hu", port);
+		fprintf(stderr, "Looking for %s:%s\n", addr_str,port_str);
 		ret = getaddrinfo(addr_str, port_str, &hints, &res);
 	} else
 #endif
