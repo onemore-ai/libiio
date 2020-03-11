@@ -42,6 +42,7 @@ Components
    device
    channel
    trigger
+   examples
 
 Indices and tables
 ==================
